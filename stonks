@@ -1,0 +1,17 @@
+a,b = map(int,input().split()) # map() используется для применения функции к каждому элементу 
+#a было b стало
+c = 0
+while b > a:
+    if b % 10 == 1:
+        b = (b - 1) / 10
+    elif b % 2 == 0:
+        b = b / 2
+    else:
+        c = 1
+        print('NO')
+        break
+if c == 0:        
+    if b == a:
+        print('YES')
+    else:
+        print('NO')
