@@ -1,0 +1,28 @@
+a = input()
+b = input()
+a = a.replace(".", "")
+a = a.replace(",", "")
+b = b.replace(".", "")
+b = b.replace(",", "")
+a = a.lower()
+b = b.lower()
+alist = a.split(' ')
+blist = b.split(' ')
+while True:
+    if len(alist) != len(blist):
+        print('NO')
+        break
+    elif len(alist) == len(blist):
+        c = 0
+        for worda in alist:
+            for wordb in blist:
+                if (worda == wordb) and blist.count(wordb) == alist.count(worda):
+                    c += 1
+                    break
+        #print('c', c)            
+        if c == len(alist):
+            print('YES')
+            break
+        else:
+            print('NO')
+            break
