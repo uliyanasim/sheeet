@@ -1,0 +1,71 @@
+s = input()
+slist = s.split(' ')
+slist = [int(element) for element in slist]
+n = slist[-1] + 1
+s1list = slist + [n] # добавили элемент с разницой 1, чтоб не потерять потом его
+i = 0
+print(slist)
+print(s1list)
+nlist = []
+alist = []
+while i < len(slist):
+    while i < len(slist) and (s1list[i + 1] - slist[i]) == 1:
+        nlist.append(slist[i])
+        i = i + 1
+    if s1list[i -1] != slist[-1]:    
+        nlist.append(s1list[i])    
+    alist.append(nlist)  #лист листов 
+    nlist = []
+    i = i + 1
+print(alist) 
+flist = []
+for a in alist:
+    if len(a) != 1:
+        flist.append(a[0]) #= a[0],'-',a[-1]
+        flist.append('-')
+        flist.append(a[-1])
+       # f = str(s)
+    else:
+        flist.join(a)    
+print(flist)    
+########################################## это с листом листов выше, ниже с кортежами без серединных элементов
+s = input()
+slist = s.split(' ')
+slist = [int(element) for element in slist]
+n = slist[-1] + 1
+s1list = slist + [n] # добавили элемент с разницой 1, чтоб не потерять потом его
+i = 0
+print(slist)
+print(s1list)
+nlist = []
+alist = []
+while i < len(slist):
+    while i < len(slist) and (s1list[i + 1] - slist[i]) == 1:
+        nlist.append(slist[i])
+        i = i + 1
+    if s1list[i -1] != slist[-1]:    
+        nlist.append(s1list[i])    
+        #tuple(nlist)
+    alist.append(nlist)  #лист листов 
+    nlist = []
+    i = i + 1
+print(alist) 
+flist = []
+klist = []
+for a in alist:
+    if len(a) != 1:
+        flist.append(a[0]) 
+        flist.append(a[-1])
+    else:
+        flist.append(a[0])
+    tuple(flist)
+    klist.append(flist)    
+    flist = []
+    
+# '..'.join(['1', '2']) -> 1..2
+#result = “,”.join(list(map(lambda x: “-“.join(x), flist)))
+result = ','.join(list(map(lambda x: '-'.join(x), klist)))    
+print(result, '1') 
+print(klist, '2')
+        
+         
