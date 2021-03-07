@@ -1,0 +1,26 @@
+def match_remove(s: str, pattern: str):
+    i = 0
+    j = i
+    to_remove = []
+    while i < len(s):
+        if s[i] == pattern[0]:
+            tmp = pattern[0]
+            j = i + 1
+            while j < len(s) and s[j] == pattern[1]:
+                j += 1
+                tmp += pattern[1] 
+            if j == i + 1:
+                i += 1
+                continue
+            if j < len(s) and s[j] == pattern[2]:
+                tmp += pattern[2]
+                i = j
+                to_remove.append(tmp)
+        i += 1
+    for w in to_remove:
+        s = s.replace(w, '')
+    return s
+s = input()
+s = match_remove(s, 'lol')
+s = match_remove(s, 'kek')
+print(s)
