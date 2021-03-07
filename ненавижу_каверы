@@ -1,0 +1,25 @@
+n = int(input())
+i = 1
+tlist = []
+dict1 = dict()
+while i <= n:
+    blist = []
+    i += 1
+    a = input()
+    alist = a.split('|')
+    for element in alist:
+        b = str(element).strip()
+        blist.append(b)
+    tuple(blist)      #кортежиккк 
+    tlist.append(blist) #лист кортежикооофф
+tlist.sort(key=lambda blist: blist[2])  #сортировка по году, но чтоб порядок названия и исполнителя не менялся
+for t in tlist:
+    tint = int(t[2])
+    if t[0] not in dict1 and tint <= 2021:
+        dict1[t[0]] = t[1]
+#print(dict1)        
+#dict1.sorted(dict1.items(), key = lambda t : t[1] 
+nlist = list(dict1.items())
+nlist.sort(key = lambda t: t[1])
+for i in nlist:
+    print(i[1],"-",i[0])        
